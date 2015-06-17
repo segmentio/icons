@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+var Duo = require('duo');
+var babel = require('duo-babel');
+var path = require('path');
+
+var duo = Duo(path.resolve(__dirname + '/../'));
+
+duo.use(babel({
+  jsxPragma: 'dom'
+}));
+
+duo.entry('./preview/index.js');
+
+duo.write(function(){
+  console.log('done!');
+});
