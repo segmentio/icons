@@ -4,10 +4,10 @@
   "description": "Icon component",
   "main": "index.js",
   "scripts": {
-    "preview": "node --harmony bin/preview"
+    "start": "duo-serve --use ./duo-plugins.js preview/index.js"
   },
   "devDependencies": {
-    "duo": "^0.12.0",
-    "duo-babel": "^5.5.3"
+    "duo-babel": "^5.5.3",
+    "duo-serve": "^0.11.0"
   }
 }
