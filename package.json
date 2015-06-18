@@ -4,7 +4,7 @@
   "description": "Icon component",
   "main": "index.js",
   "scripts": {
-    "start": "duo-serve --use ./duo-plugins.js preview/index.js"
+    "start": "duo-serve --use ./preview/duo-plugins.js preview/index.js"
   },
   "devDependencies": {
     "duo-babel": "^5.5.3",
