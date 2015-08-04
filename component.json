@@ -1,0 +1,6 @@
+{
+  "name": "icons",
+  "dependencies": {
+    "dekujs/deku": "^0.4.0"
+  }
+}
