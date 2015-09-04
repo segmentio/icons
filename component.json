@@ -1,7 +1,8 @@
 {
   "name": "icons",
+  "version": "1.0.0",
   "dependencies": {
-    "dekujs/virtual-element": "*"
+    "dekujs/virtual-element": "^1.1.2"
   },
   "development": {
     "dekujs/deku": "0.5.x"
