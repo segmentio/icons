@@ -1,4 +1,8 @@
-import {dom,tree,render} from 'dekujs/deku';
+
+/** @jsx element */
+
+import element from 'dekujs/virtual-element';
+import {tree,render} from 'dekujs/deku';
 import {Icon,names} from '../';
 
 function renderIcons (size, color) {

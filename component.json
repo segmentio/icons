@@ -1,6 +1,9 @@
 {
   "name": "icons",
   "dependencies": {
-    "dekujs/deku": "^0.4.0"
+    "dekujs/virtual-element": "*"
+  },
+  "development": {
+    "dekujs/deku": "0.5.x"
   }
 }
