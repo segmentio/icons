@@ -5,10 +5,14 @@
   "description": "Icon component",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "start": "duo-serve --use ./preview/duo-plugins.js preview/index.js"
   },
   "devDependencies": {
     "duo-babel": "^5.5.3",
-    "duo-serve": "^0.11.0"
+    "duo-serve": "^0.11.0",
+    "eslint": "^0.24.1",
+    "eslint-config-segment": "^1.0.18",
+    "eslint-plugin-react": "^2.3.0"
   }
 }
