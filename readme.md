@@ -8,6 +8,7 @@
 
 ```
 cog
+check
 lock
 plus
 arrow-down
