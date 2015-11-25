@@ -1,5 +1,5 @@
 var babel = require('duo-babel');
 
 module.exports = [
-  babel({ jsxPragma: 'dom' })
+  babel({ jsxPragma: 'element' })
 ];
