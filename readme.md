@@ -38,4 +38,5 @@ string
 number
 object
 graph
+status-icon
 ```
