@@ -9,20 +9,22 @@ function renderIcons(size, color) {
   return (
     <div style="margin: 25px auto; width: 700px; overflow: hidden">
       {names.map(function(name) {
-        let body = [];
-
         if (name == 'status-icon') {
+          let res = [];
           let statuses = [ 'success', 'warning', 'error' ];
           for (let i = 0; i < statuses.length; i++) {
-            body.push(<Icon type={name} status={statuses[i]} size={size} />)
+            res.push(
+              <div style="float:left; margin: 10px; background: whiteSmoke;">
+                <Icon type={name} status={statuses[i]} size={size} />
+              </div>
+            )
           }
-        } else {
-          body.push(<Icon type={name} size={size} color={color} />);
+          return res;
         }
 
         return (
           <div style="float:left; margin: 10px; background: whiteSmoke;">
-            {body}
+            <Icon type={name} size={size} color={color} />
           </div>
         );
       })}
