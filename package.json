@@ -2,12 +2,20 @@
   "name": "@segment/icons",
   "version": "2.4.0",
   "description": "Icon component",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "lint": "eslint .",
-    "start": "duo-serve --use ./preview/duo-plugins.js preview/index.js"
+    "start": "duo-serve --use ./preview/duo-plugins.js preview/index.js",
+    "clean": "rm -rf lib",
+    "build-js": "babel src --source-maps inline --out-dir lib",
+    "build-css": "cd src && find . -name *.css -exec cp -v {} ../lib/{} \\;",
+    "build": "npm run build-js && npm run build-css"
   },
   "devDependencies": {
+    "babel-cli": "^6.4.0",
+    "babel-plugin-syntax-jsx": "^6.0.14",
+    "babel-plugin-transform-react-jsx": "^6.0.18",
+    "babel-preset-es2015": "^6.1.2",
     "duo-babel": "^5.5.3",
     "duo-serve": "^0.11.0",
     "eslint": "^0.24.1",
