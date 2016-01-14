@@ -19,6 +19,7 @@
     "start": "duo-serve --use ./preview/duo-plugins.js preview/index.js",
     "clean": "rm -rf lib",
     "build": "babel src --source-maps inline --out-dir lib",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "postinstall": "npm run build"
   }
 }
