@@ -1,7 +1,7 @@
 
 /** @jsx element */
 
-import element from 'dekujs/virtual-element';
+import element from 'virtual-element';
 
 export default function render(color) {
   return (

@@ -3,14 +3,6 @@
   "version": "2.4.0",
   "description": "Icon component",
   "main": "./lib/index.js",
-  "scripts": {
-    "lint": "eslint .",
-    "start": "duo-serve --use ./preview/duo-plugins.js preview/index.js",
-    "clean": "rm -rf lib",
-    "build-js": "babel src --source-maps inline --out-dir lib",
-    "build-css": "cd src && find . -name *.css -exec cp -v {} ../lib/{} \\;",
-    "build": "npm run build-js && npm run build-css"
-  },
   "devDependencies": {
     "babel-cli": "^6.4.0",
     "babel-plugin-syntax-jsx": "^6.0.14",
@@ -21,5 +13,12 @@
     "eslint": "^0.24.1",
     "eslint-config-segment": "^1.0.18",
     "eslint-plugin-react": "^2.3.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "duo-serve --use ./preview/duo-plugins.js preview/index.js",
+    "clean": "rm -rf lib",
+    "build": "babel src --source-maps inline --out-dir lib",
+    "prepublish": "npm run build"
   }
 }

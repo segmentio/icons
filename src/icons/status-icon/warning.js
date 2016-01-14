@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-import element from 'dekujs/magic-virtual-element';
+import element from 'magic-virtual-element';
 
 /**
  * Render a "warning" icon.
