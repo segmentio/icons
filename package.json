@@ -1,6 +1,6 @@
 {
   "name": "@segment/icons",
-  "version": "2.4.6",
+  "version": "2.4.7",
   "description": "Icon component",
   "main": "index.js",
   "scripts": {

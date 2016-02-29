@@ -1,6 +1,6 @@
 {
   "name": "icons",
-  "version": "2.4.6",
+  "version": "2.4.7",
   "development": {
     "dekujs/deku": "0.5.x"
   }
