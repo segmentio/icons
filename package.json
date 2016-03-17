@@ -5,10 +5,23 @@
   "main": "index.js",
   "browserify": {
     "transform": [
-      [ "babelify", { "presets": [ "es2015", "react" ] } ]
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015",
+            "react"
+          ]
+        }
+      ]
     ],
     "plugins": [
-      [ "transform-react-jsx", { "pragma": "element" } ]
+      [
+        "transform-react-jsx",
+        {
+          "pragma": "element"
+        }
+      ]
     ]
   },
   "scripts": {
