@@ -1,0 +1,13 @@
+
+machine:
+  node:
+    version: 4
+
+dependencies:
+  override:
+    - make node_modules
+
+test:
+  override:
+    - make build/browserify.js
+    - make build/duo.js
