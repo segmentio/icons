@@ -3,6 +3,14 @@
   "version": "2.5.0",
   "description": "Icon component",
   "main": "index.js",
+  "browserify": {
+    "transform": [
+      [ "babelify", { "presets": [ "es2015", "react" ] } ]
+    ],
+    "plugins": [
+      [ "transform-react-jsx", { "pragma": "element" } ]
+    ]
+  },
   "scripts": {
     "lint": "eslint .",
     "start": "duo-serve --use ./preview/duo-plugins.js preview/index.js"
@@ -13,11 +21,13 @@
     "babel-preset-react": "^6.5.0",
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
+    "duo": "^0.15.5",
     "duo-babel": "^5.5.3",
     "duo-serve": "^0.11.0",
     "eslint": "^0.24.1",
     "eslint-config-segment": "^1.0.18",
-    "eslint-plugin-react": "^2.3.0"
+    "eslint-plugin-react": "^2.3.0",
+    "mocha": "^2.4.5"
   },
   "dependencies": {
     "deku": "^0.5.6",
