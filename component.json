@@ -1,7 +1,7 @@
 {
   "name": "icons",
   "version": "2.5.3",
-  "development": {
+  "dependencies": {
     "dekujs/deku": "0.5.6",
     "dekujs/magic-virtual-element": "1.0.6",
     "dekujs/virtual-element": "1.2.0"
