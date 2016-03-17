@@ -4,9 +4,7 @@ NODE_ENV ?= development
 BIN := node_modules/.bin
 SRC := $(shell find lib -type f -name "*.js")
 
-BROWSERIFY_TRANSFORM := --transform babelify
-BROWSERIFY_FLAGS := $(BROWSERIFY_TRANSFORM) -d
-
+BROWSERIFY_FLAGS :=  -t [ babelify --presets es2015 --plugins [ transform-react-jsx --pragma element ] ]
 DUO_FLAGS := --development
 
 clean:
