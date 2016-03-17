@@ -5,20 +5,18 @@ BIN := node_modules/.bin
 SRC := $(shell find lib -type f -name "*.js")
 
 BROWSERIFY_TRANSFORM := --transform babelify
-BROWSERIFY_FLAGS := $(BROWSERIFY_TRANSFORM)
+BROWSERIFY_FLAGS := $(BROWSERIFY_TRANSFORM) -d
 
-# in dev, build with sourcemaps and stuff
-ifeq ($(NODE_ENV),development)
-	BROWSERIFY_FLAGS += -d
-endif
-
-.DEFAULT_GOAL := build/bundle.js
+DUO_FLAGS := --development
 
 clean:
 	rm -rf components build
 
-build/bundle.js: index.js $(SRC) build node_modules
+build/browserify.js: index.js $(SRC) build node_modules
 	$(BIN)/browserify $(BROWSERIFY_FLAGS) $< > $@
+
+build/duo.js: index.js $(SRC) build node_modules
+	$(BIN)/duo $(DUO_FLAGS) $< > $@
 
 node_modules:
 	npm install
