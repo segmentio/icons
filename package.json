@@ -1,9 +1,8 @@
 {
   "name": "@segment/icons",
-  "version": "2.5.4",
+  "version": "2.5.5",
   "description": "Icon component",
   "main": "index.js",
-
   "scripts": {
     "lint": "eslint .",
     "start": "duo-serve --use ./preview/duo-plugins.js preview/index.js"

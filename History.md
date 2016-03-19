@@ -1,4 +1,20 @@
 
+2.5.5 / 2016-03-18
+==================
+
+  * Merge pull request #19 from segmentio/add/warning
+  * added warning icon
+  * Release 2.5.4
+  * stupid
+  * Release 2.5.3
+  * fix more shit
+  * add `circle.yml`
+  * Makefile: add `build/duo.js`
+  * fmt
+  * Release 2.5.2
+  * Merge branch 'master' of ssh://github.com/segmentio/icons
+  * fix shit
+
 2.5.4 / 2016-03-17
 ==================
 
