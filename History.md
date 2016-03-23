@@ -1,4 +1,10 @@
 
+2.5.7 / 2016-03-23
+==================
+
+  * Merge pull request #21 from segmentio/new/docs
+  * added new docs icon
+
 2.5.6 / 2016-03-23
 ==================
 

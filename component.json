@@ -1,6 +1,6 @@
 {
   "name": "icons",
-  "version": "2.5.6",
+  "version": "2.5.7",
   "dependencies": {
     "dekujs/deku": "0.5.6",
     "dekujs/magic-virtual-element": "1.0.6",
