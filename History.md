@@ -1,4 +1,10 @@
 
+2.5.6 / 2016-03-23
+==================
+
+  * Merge pull request #20 from segmentio/new/arrow-right
+  * added new arrow-right icon
+
 2.5.5 / 2016-03-18
 ==================
 
