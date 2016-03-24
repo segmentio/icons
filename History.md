@@ -1,4 +1,10 @@
 
+2.5.8 / 2016-03-24
+==================
+
+  * Merge pull request #22 from segmentio/new/cross
+  * new cross component
+
 2.5.7 / 2016-03-23
 ==================
 
