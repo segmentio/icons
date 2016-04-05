@@ -9,5 +9,7 @@ dependencies:
 
 test:
   override:
-    - make build/browserify.js
-    - make build/duo.js
+    # ensure we can build for both Duo and Browserify
+    - make build
+    - make coverage
+    - make check-coverage
