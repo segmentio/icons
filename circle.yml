@@ -18,4 +18,5 @@ deployment:
   publish:
     tag: /[0-9]+(\.[0-9]+)*(-.+)?/
     commands:
+      - make lib
       - npm publish
