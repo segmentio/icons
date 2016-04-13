@@ -42,7 +42,7 @@ check-coverage: coverage
 	  --lines $(COVERAGE_LINE_THRESHOLD) \
 	  --statements $(COVERAGE_STATEMENT_THRESHOLD)
 
-build: lib node_modules
+check-build: lib node_modules
 	$(BIN)/browserify lib/index.js > /dev/null
 	$(BIN)/duo --stdout lib/index.js > /dev/null
 
@@ -50,4 +50,4 @@ node_modules:
 	npm install
 	touch $@
 
-.PHONY: test clean build
+.PHONY: test clean check-build

@@ -10,6 +10,6 @@ dependencies:
 test:
   override:
     # ensure we can build for both Duo and Browserify
-    - make build
+    - make check-build
     - make coverage
-    - make check-coverage
+du    - make check-coverage
