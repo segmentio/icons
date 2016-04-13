@@ -12,4 +12,4 @@ test:
     # ensure we can build for both Duo and Browserify
     - make check-build
     - make coverage
-du    - make check-coverage
+    - make check-coverage
