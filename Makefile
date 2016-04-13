@@ -20,7 +20,7 @@ test: node_modules
 	  --transform babelify \
 	    test/index.js
 
-coverage: $(SRC) $(wildcard test/*.js) node_modules
+coverage: $(SRC) test/index.js node_modules
 	$(BIN)/mochify \
 	  --phantomjs $(BIN)/phantomjs \
 	  --reporter spec \
@@ -44,7 +44,6 @@ check-coverage: coverage
 
 check-build: lib node_modules
 	$(BIN)/browserify lib/index.js > /dev/null
-	$(BIN)/duo --stdout lib/index.js > /dev/null
 
 node_modules:
 	npm install
