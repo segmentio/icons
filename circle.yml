@@ -13,3 +13,9 @@ test:
     - make check-build
     - make coverage
     - make check-coverage
+
+deployment:
+  publish:
+    tag: /[0-9]+(\.[0-9]+)*(-.+)?/
+    commands:
+      - npm publish
