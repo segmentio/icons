@@ -9,5 +9,14 @@ dependencies:
 
 test:
   override:
-    - make build/browserify.js
-    - make build/duo.js
+    # ensure we can build for both Duo and Browserify
+    - make check-build
+    - make coverage
+    - make check-coverage
+
+deployment:
+  publish:
+    tag: /[0-9]+(\.[0-9]+)*(-.+)?/
+    commands:
+      - make lib
+      - npm publish
