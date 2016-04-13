@@ -1,4 +1,16 @@
 
+3.0.0 / 2016-04-13
+==================
+
+  * remove `preview`
+  * remove component support
+  * add `.npmignore`
+  * circle: `make lib` before publishing
+  * circle: publish semver-ish tags to npm
+  * circle: fix typo
+  * Makefile: rename "build" to "check-build"
+  * precompile, add tests, add coverage
+
 2.5.8 / 2016-03-24
 ==================
 
