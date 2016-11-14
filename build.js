@@ -46,15 +46,16 @@ async function main () {
     components.push(component)
   }
 
-  const index = components.map(component => `exports["${component}"] = require('./${component}')`)
-  const final = transform('', index.join('\n'))
+  const list = components.map(component => `exports["${component}"] = require('./${component}')`)
+  const final = transform('', list.join('\n'))
   await writeFile('./build/deku/index.js', final)
   await writeFile('./build/react/index.js', final)
 
-  await writeFile('./build/index.js', `
+  const index = transform('', `
     exports.react = require('./react')
     exports.deku = require('./deku')
   `)
+  await writeFile('./build/index.js', index)
 }
 
 /**
