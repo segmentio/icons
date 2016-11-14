@@ -13,6 +13,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "mkdirp-then": "^1.2.0",
     "mz": "^2.5.0",
+    "pascal-case": "^2.0.0",
     "standard": "^8.5.0",
     "svgo": "^0.7.1"
   },

@@ -1,6 +1,7 @@
 SVGS := $(wildcard svgs/*.svg)
+TEMPLATES := $(wildcard templates/*.js)
 
-build: $(SVGS) node_modules
+build: $(SVGS) $(TEMPLATES) node_modules
 	node_modules/.bin/babel-node build.js
 	touch $@
 

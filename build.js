@@ -1,9 +1,18 @@
-import { readFile, writeFile, readdir } from 'mz/fs'
 import path from 'path'
+import { readFileSync } from 'fs'
+import { readFile, writeFile, readdir } from 'mz/fs'
 import mkdir from 'mkdirp-then'
+import toPascalCase from 'pascal-case'
 import SVGO from 'svgo'
 import * as babel from 'babel-core'
 import transformJSX from 'babel-plugin-transform-react-jsx'
+
+/**
+ * Compnent templates.
+ */
+
+const DEKU_TEMPLATE = readFileSync('./templates/deku.js', 'utf8')
+const REACT_TEMPLATE = readFileSync('./templates/react.js', 'utf8')
 
 /**
  * Entrypoint.
@@ -18,24 +27,25 @@ async function main () {
     .filter(f => path.extname(f) === '.svg')
     .map(f => path.join(__dirname, 'svgs', f))
 
-  const names = []
+  const components = []
 
   for (const file of svgs) {
     const name = path.basename(file, '.svg')
+    const component = toPascalCase(name)
     const source = await readFile(file, 'utf8')
     const jsx = await toJSX(source)
-    const deku = createDekuComponent(jsx)
-    const react = createReactComponent(jsx)
+    const deku = createDekuComponent(jsx, component)
+    const react = createReactComponent(jsx, component)
 
-    console.log(`svgs/${name}.svg -> build/deku/${name}.js`)
-    await writeFile(`./build/deku/${name}.js`, deku)
-    console.log(`svgs/${name}.svg -> build/react/${name}.js`)
-    await writeFile(`./build/react/${name}.js`, react)
+    console.log(`svgs/${name}.svg -> build/deku/${component}.js`)
+    await writeFile(`./build/deku/${component}.js`, deku)
+    console.log(`svgs/${name}.svg -> build/react/${component}.js`)
+    await writeFile(`./build/react/${component}.js`, react)
 
-    names.push(name)
+    components.push(component)
   }
 
-  const index = names.map(name => `exports["${name}"] = require('./${name}')`)
+  const index = components.map(component => `exports["${component}"] = require('./${component}')`)
   const final = transform('', index.join('\n'))
   await writeFile('./build/deku/index.js', final)
   await writeFile('./build/react/index.js', final)
@@ -56,31 +66,21 @@ main().catch(e => {
 })
 
 /**
- * Create a Deku component with `jsx`.
+ * Create a Deku component with `jsx` and `name`.
  */
 
-function createDekuComponent (jsx) {
-  return transform('element', `
-    import element from 'virtual-element'
-
-    export default { render }
-
-    function render ({ props }) {
-      return (${jsx})
-    }
-  `)
+function createDekuComponent (jsx, name) {
+  const source = DEKU_TEMPLATE.replace('__SOURCE__', jsx).replace('__NAME__', name)
+  return transform('element', source)
 }
 
 /**
- * Create a React component with `jsx`.
+ * Create a React component with `jsx` and `name`.
  */
 
-function createReactComponent (jsx) {
-  return transform('React.createElement', `
-    import React from 'react'
-
-    export default props => (${jsx})
-  `)
+function createReactComponent (jsx, name) {
+  const source = REACT_TEMPLATE.replace('__SOURCE__', jsx).replace('__NAME__', name)
+  return transform('React.createElement', source)
 }
 
 /**
@@ -102,9 +102,16 @@ function transform (pragma, source) {
 
 function toJSX (svg) {
   return new Promise(function (resolve, reject) {
-    const svgo = new SVGO()
+    const svgo = new SVGO({
+      plugins: [
+        {
+          removeTitle: true,
+          removeXMLNS: true
+        }
+      ]
+    })
     svgo.optimize(svg, function (res) {
-      const jsx = res.data.replace(/("__COLOR__")/g, '{props.color}')
+      const jsx = res.data.replace(/("__COLOR__")/g, '{color}')
       resolve(jsx)
     })
   })
