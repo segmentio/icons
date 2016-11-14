@@ -6,6 +6,7 @@ import toPascalCase from 'pascal-case'
 import SVGO from 'svgo'
 import * as babel from 'babel-core'
 import transformJSX from 'babel-plugin-transform-react-jsx'
+import addModuleExports from 'babel-plugin-add-module-exports'
 
 /**
  * Compnent templates.
@@ -91,7 +92,8 @@ function transform (pragma, source) {
   return babel.transform(source, {
     presets: [ 'es2015', 'stage-0' ],
     plugins: [
-      [ transformJSX, { pragma } ]
+      [ transformJSX, { pragma } ],
+      addModuleExports
     ]
   }).code
 }

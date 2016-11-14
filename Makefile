@@ -12,4 +12,7 @@ node_modules: package.json
 clean:
 	rm -rf build
 
-.PHONY: clean
+test: node_modules build
+	node_modules/.bin/ava test/index.js
+
+.PHONY: clean test

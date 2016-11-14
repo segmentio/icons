@@ -13,7 +13,7 @@ export default class extends Component {
   }
 
   render () {
-    const color = state.isHovering ? this.props.hoverColor : this.props.color
+    const color = this.state.isHovering ? this.props.hoverColor : this.props.color
     return (
       <span onMouseOut={::this.onMouseOut} onMouseOver={::this.onMouseOver}>
         __SOURCE__
