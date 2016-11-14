@@ -1,6 +1,0 @@
-{
-  "extends": "segment/browser-es6",
-  "rules": {
-    "quote-props": 0
-  }
-}
