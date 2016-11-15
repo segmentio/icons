@@ -21,11 +21,13 @@
     "mkdirp-then": "^1.2.0",
     "mz": "^2.5.0",
     "pascal-case": "^2.0.0",
+    "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "standard": "^8.5.0",
-    "svgo": "^0.7.1"
+    "svgo": "^0.7.1",
+    "virtual-element": "1.2.0"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^15.3.2",
     "virtual-element": "1.2.0"
   },
