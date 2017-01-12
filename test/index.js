@@ -1,52 +1,32 @@
+import test from 'ava'
+import * as components from '../build/index.js'
+import * as deku from 'deku'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import element from 'virtual-element'
 
-import { tree, render } from 'deku';
-import element from 'virtual-element';
-import assert from 'assert';
-import icons from '../src/icons';
-import Icon from '../src';
+for (const name in components.deku) {
+  const Component = components.deku[name]
 
-describe('Icons', function() {
-  let root = null;
+  test(`deku/${name} should render`, t => {
+    const app = deku.tree(element(Component, {
+      color: 'red'
+    }))
+    const fixture = document.createElement('div')
+    deku.render(app, fixture)
+    const svg = fixture.querySelector('svg')
+    t.truthy(svg)
+  })
+}
 
-  before(function() {
-    root = document.createElement('div');
-    document.body.appendChild(root);
-  });
+for (const name in components.react) {
+  const Component = components.react[name]
 
-  afterEach(function() {
-    root.innerHTML = '';
-  });
-
-  after(function() {
-    document.body.removeChild(root);
-  });
-
-  Object.keys(icons).forEach(function(type) {
-    if (type === 'status-icon') return;
-    describe(`<Icon type="${type}" />`, function() {
-      it('should render', test({ type }));
-    });
-  });
-
-  [
-    'success',
-    'warning',
-    'error'
-  ].forEach(function(type) {
-    describe(`<Icon type="status-icon" status="${type}" />`, function() {
-      const props = { type: 'status-icon', status: type };
-      it('should render', test(props, '.StatusIcon svg'));
-    });
-  });
-
-  function test(props, selector) {
-    selector = selector || 'svg';
-    return function() {
-      const app = tree(<Icon {...props} />);
-      render(app, root);
-
-      const icon = root.querySelector(selector);
-      assert(icon, `did not render icon (${selector})`);
-    };
-  }
-});
+  test(`react/${name} should render`, t => {
+    const app = React.createElement(Component, { color: 'red' })
+    const fixture = document.createElement('div')
+    ReactDOM.render(app, fixture)
+    const svg = fixture.querySelector('svg')
+    t.truthy(svg)
+  })
+}

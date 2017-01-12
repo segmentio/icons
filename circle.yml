@@ -1,9 +1,10 @@
-
 machine:
   node:
     version: 4
 
 dependencies:
+  cache_directories:
+    - node_modules
   pre:
     - npm config set "//registry.npmjs.org/:_authToken" $NPM_AUTH
   override:
@@ -11,13 +12,11 @@ dependencies:
 
 test:
   override:
-    - make check-build
-    - make coverage
-    - make check-coverage
+    - make build
+    - make test
 
 deployment:
   publish:
     tag: /[0-9]+(\.[0-9]+)*(-.+)?/
     commands:
-      - make lib
       - npm publish

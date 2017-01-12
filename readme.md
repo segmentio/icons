@@ -1,7 +1,13 @@
 # Icons
 
+Component of icon components, for Deku and React.
+
+## Example
+
 ```js
-<Icon type="cog" color="#444" hoverColor="#ff0" />
+import { ArrowDown } from '@segment/icons/deku'
+
+<ArrowDown color="#555" />
 ```
 
 ## Types
