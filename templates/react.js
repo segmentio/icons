@@ -6,9 +6,10 @@ export default class extends Component {
     hoverColor: PropTypes.string
   };
 
+  static displayName = '__NAME__'
+
   constructor () {
     super()
-    this.displayName = '__NAME__'
     this.state = { isHovering: false }
   }
 
