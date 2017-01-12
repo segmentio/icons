@@ -81,7 +81,7 @@ function createDekuComponent (jsx, name) {
  */
 
 function createReactComponent (jsx, name) {
-  const source = REACT_TEMPLATE.replace('__SOURCE__', jsx).replace('__NAME__', name)
+  const source = REACT_TEMPLATE.replace('__SOURCE__', toCamelCase(jsx)).replace('__NAME__', name)
   return transform('React.createElement', source)
 }
 
@@ -118,4 +118,17 @@ function toJSX (svg) {
       resolve(jsx)
     })
   })
+}
+
+/**
+ * Convert hyphen-separated props with their
+ * camelCase representations (for React).
+ */
+
+function toCamelCase (jsx) {
+  return jsx
+    .replace(/stroke-width/g, 'strokeWidth')
+    .replace(/stroke-linecap/g, 'strokeLinecap')
+    .replace(/stroke-linejoin/g, 'strokeLinejoin')
+    .replace(/fill-rule/g, 'fillRule')
 }
