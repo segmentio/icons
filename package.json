@@ -1,6 +1,6 @@
 {
   "name": "@segment/icons",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "Icon component",
   "main": "build/index.js",
   "devDependencies": {

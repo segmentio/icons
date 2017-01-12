@@ -1,4 +1,9 @@
 
+4.0.0 / 2017-01-12
+==================
+
+  * rewrite to dynamically generate SVG components (for Deku & React) (#25)
+
 3.0.1 / 2016-04-13
 ==================
 
