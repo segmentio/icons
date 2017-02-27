@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 export default class extends Component {
   static propTypes = {
-    color: PropTypes.string,
+    color: PropTypes.string.isRequired,
     hoverColor: PropTypes.string
   };
 
@@ -14,7 +14,7 @@ export default class extends Component {
   }
 
   render () {
-    const color = this.state.isHovering ? this.props.hoverColor : this.props.color
+    const color = this.state.isHovering && this.props.hoverColor ? this.props.hoverColor : this.props.color
     return (
       <span onMouseOut={::this.onMouseOut} onMouseOver={::this.onMouseOver}>
         __SOURCE__
