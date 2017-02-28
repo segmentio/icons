@@ -108,6 +108,7 @@ function toJSX (svg) {
     const svgo = new SVGO({
       plugins: [
         {
+          addAttributesToSVGElement: { attributes: ['width="100%"', 'height="100%"'] },
           removeTitle: true,
           removeXMLNS: true
         }
