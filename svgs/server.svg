@@ -1,0 +1,8 @@
+<svg viewBox="0 0 25 25">
+  <g fill="none" fill-rule="evenodd" stroke="__COLOR__" stroke-width="1.5">
+    <path d="M4.23 23.375V24m16.82-.625V24" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M17.793 5.81c0-.893.723-1.617 1.616-1.617.89 0 1.612.724 1.612 1.616 0 .89-.723 1.613-1.615 1.613-.894 0-1.617-.724-1.617-1.616z"/>
+    <path d="M24.117 10.225H1.16V1.392h22.957v8.833zM4.55 4.555v2.51m3.4-2.51v2.51M20 18.04c0 .43-.348.78-.78.78-.43 0-.78-.35-.78-.78 0-.43.35-.78.78-.78.432 0 .78.35.78.78z" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M23.956 22.458H1v-8.833h22.956v8.833zM4.39 16.756v2.572m3.4-2.572v2.572" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
