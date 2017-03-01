@@ -1,8 +1,14 @@
 
+4.2.0 / 2017-02-28
+==================
+
+  * Add the integration svgs from site-public (#29)
+  * Make sure width/height 100% is set and remove unused attrs (#28)
+
 4.1.1 / 2017-02-27
 ==================
 
-  * Make hoverColor optional
+  * Make hoverColor optional (#26)
 
 4.1.0 / 2017-01-12
 ==================
