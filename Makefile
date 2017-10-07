@@ -5,7 +5,7 @@ build: $(SVGS) $(TEMPLATES) node_modules
 	node_modules/.bin/babel-node build.js
 	touch $@
 
-node_modules: package.json
+node_modules: package.json package-lock.json
 	npm install
 	touch $@
 

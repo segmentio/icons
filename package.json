@@ -3,6 +3,7 @@
   "version": "4.2.0",
   "description": "Icon component",
   "main": "build/index.js",
+  "repository": "segmentio/icons",
   "devDependencies": {
     "ava": "^0.16.0",
     "babel-cli": "^6.18.0",
@@ -21,14 +22,14 @@
     "mkdirp-then": "^1.2.0",
     "mz": "^2.5.0",
     "pascal-case": "^2.0.0",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "standard": "^8.5.0",
     "svgo": "^0.7.1",
     "virtual-element": "1.2.0"
   },
   "peerDependencies": {
-    "react": "^15.3.2",
+    "react": "^15.0.0 || ^16.0.0",
     "virtual-element": "1.2.0"
   },
   "standard": {
@@ -40,5 +41,8 @@
       "./test/support.js"
     ],
     "babel": "inherit"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.0"
   }
 }
