@@ -2,7 +2,8 @@ SVGS := $(wildcard svgs/*.svg)
 TEMPLATES := $(wildcard templates/*.js)
 
 build: $(SVGS) $(TEMPLATES) node_modules
-	node_modules/.bin/babel-node build.js
+	BABEL_ENV=commonjs node_modules/.bin/babel-node build.js
+	BABEL_ENV=es node_modules/.bin/babel-node build.js
 	touch $@
 
 node_modules: package.json package-lock.json
