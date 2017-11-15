@@ -8,6 +8,9 @@ import * as babel from 'babel-core'
 import transformJSX from 'babel-plugin-transform-react-jsx'
 import addModuleExports from 'babel-plugin-add-module-exports'
 
+const BABEL_ENV = process.env.BABEL_ENV || 'commonjs'
+const pathPrefix = BABEL_ENV === 'es' ? './es' : './lib'
+
 /**
  * Compnent templates.
  */
@@ -20,8 +23,8 @@ const REACT_TEMPLATE = readFileSync('./templates/react.js', 'utf8')
  */
 
 async function main () {
-  await mkdir('./build/deku')
-  await mkdir('./build/react')
+  await mkdir(`${pathPrefix}/deku`)
+  await mkdir(`${pathPrefix}/react`)
 
   const files = await readdir('./svgs')
   const svgs = files
@@ -38,24 +41,26 @@ async function main () {
     const deku = createDekuComponent(jsx, component)
     const react = createReactComponent(jsx, component)
 
-    console.log(`svgs/${name}.svg -> build/deku/${component}.js`)
-    await writeFile(`./build/deku/${component}.js`, deku)
-    console.log(`svgs/${name}.svg -> build/react/${component}.js`)
-    await writeFile(`./build/react/${component}.js`, react)
+    console.log(`svgs/${name}.svg -> ${pathPrefix}/deku/${component}.js`)
+    await writeFile(`${pathPrefix}/deku/${component}.js`, deku)
+    console.log(`svgs/${name}.svg -> ${pathPrefix}/react/${component}.js`)
+    await writeFile(`${pathPrefix}/react/${component}.js`, react)
 
     components.push(component)
   }
 
-  const list = components.map(component => `exports["${component}"] = require('./${component}')`)
-  const final = transform('', list.join('\n'))
-  await writeFile('./build/deku/index.js', final)
-  await writeFile('./build/react/index.js', final)
+  const dekuList = components.map(component => `export { default as ${component} } from './deku/${component}'`)
+  const reactList = components.map(component => `export { default as ${component} } from './react/${component}'`)
+  await writeFile(`${pathPrefix}/deku.js`, transform('', dekuList.join('\n')))
+  await writeFile(`${pathPrefix}/react.js`, transform('', reactList.join('\n')))
 
   const index = transform('', `
-    exports.react = require('./react')
-    exports.deku = require('./deku')
+    import * as react from './react'
+    import * as deku from './deku'
+    
+    export { react, deku }
   `)
-  await writeFile('./build/index.js', index)
+  await writeFile(`${pathPrefix}/index.js`, index)
 }
 
 /**
@@ -90,13 +95,26 @@ function createReactComponent (jsx, name) {
  */
 
 function transform (pragma, source) {
-  return babel.transform(source, {
-    presets: [ 'es2015', 'stage-0' ],
-    plugins: [
-      [ transformJSX, { pragma } ],
-      addModuleExports
-    ]
-  }).code
+  const config = {
+    commonjs: {
+      presets: [ 'es2015', 'stage-0' ],
+      plugins: [
+        [ transformJSX, { pragma } ],
+        addModuleExports
+      ]
+    },
+    es: {
+      presets: [
+        [ 'es2015', { modules: false } ],
+        'stage-0'
+      ],
+      plugins: [
+        [ transformJSX, { pragma } ]
+      ]
+    }
+  }
+  
+  return babel.transform(source, config[BABEL_ENV]).code
 }
 
 /**

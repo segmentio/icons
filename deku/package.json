@@ -1,0 +1,6 @@
+{
+  "name": "@segment/icons/deku",
+  "private": true,
+  "main": "../lib/deku.js",
+  "module": "../es/deku.js"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@segment/icons/react",
+  "private": true,
+  "main": "../lib/react.js",
+  "module": "../es/react.js"
+}

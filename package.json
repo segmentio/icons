@@ -2,7 +2,8 @@
   "name": "@segment/icons",
   "version": "4.3.0",
   "description": "Icon component",
-  "main": "build/index.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "repository": "segmentio/icons",
   "devDependencies": {
     "ava": "^0.16.0",
