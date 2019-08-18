@@ -23,7 +23,7 @@
     "mz": "^2.5.0",
     "pascal-case": "^2.0.0",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0",
+    "react-dom": "^16.0.1",
     "standard": "^8.5.0",
     "svgo": "^0.7.1",
     "virtual-element": "1.2.0"
