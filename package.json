@@ -43,6 +43,6 @@
     "babel": "inherit"
   },
   "dependencies": {
-    "prop-types": "^15.6.0"
+    "prop-types": "^15.8.1"
   }
 }
